@@ -243,6 +243,7 @@ function renderQuestion() {
   el.quizView.hidden = false;
   el.resultView.hidden = true;
   el.insightPanel.hidden = true;
+  el.insightPanel.style.display = "none";
   const question = questions[current];
   el.questionNumber.textContent = current + 1;
   el.sideCurrent.textContent = current + 1;
@@ -388,6 +389,7 @@ function showResult() {
   el.quizView.hidden = true;
   el.resultView.hidden = false;
   el.insightPanel.hidden = false;
+  el.insightPanel.style.display = "grid";
   el.resultTitle.textContent = title;
   el.resultSummary.textContent = `${summary} 这份测试用于自我探索和职业方向参考，不构成心理、医疗或职业诊断。`;
 

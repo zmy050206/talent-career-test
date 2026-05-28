@@ -166,6 +166,14 @@ svg path {
   grid-template-columns: 224px minmax(0, 1fr) 310px;
 }
 
+.workspace.assessment-mode .insight-panel {
+  display: none !important;
+}
+
+.workspace.result-mode .insight-panel {
+  display: grid;
+}
+
 .steps-panel,
 .question-panel,
 .insight-panel,
