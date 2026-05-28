@@ -436,7 +436,32 @@ h1 {
 
 .dimension-list {
   display: grid;
-  gap: 15px;
+  gap: 12px;
+}
+
+.trait-group {
+  display: grid;
+  gap: 8px;
+  padding: 14px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #ffffff;
+}
+
+.trait-group h3 {
+  margin: 0;
+  font-size: 14px;
+}
+
+.trait-group span {
+  display: inline-flex;
+  width: fit-content;
+  padding: 5px 9px;
+  border-radius: 8px;
+  background: var(--soft);
+  color: var(--mint-dark);
+  font-size: 13px;
+  font-weight: 850;
 }
 
 .dimension-row {
@@ -597,6 +622,38 @@ h1 {
   color: var(--muted);
   font-size: 14px;
   line-height: 1.6;
+}
+
+.result-grid li strong,
+.result-grid li span,
+.result-grid li em {
+  display: block;
+}
+
+.result-grid li strong {
+  color: var(--ink);
+  font-style: normal;
+}
+
+.result-grid li span {
+  margin-top: 3px;
+}
+
+.result-grid li em {
+  margin-top: 5px;
+  color: var(--mint-dark);
+  font-style: normal;
+  font-weight: 800;
+}
+
+.job-match {
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--line);
+}
+
+.job-match:last-child {
+  padding-bottom: 0;
+  border-bottom: 0;
 }
 
 .result-actions {
