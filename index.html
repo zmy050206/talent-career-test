@@ -30,7 +30,7 @@
         </nav>
       </header>
 
-      <main id="app-main" class="workspace">
+      <main id="app-main" class="workspace assessment-mode">
         <aside class="steps-panel" aria-label="测评进度">
           <div class="question-count"><span id="sideCurrent">1</span> / <span id="sideTotal">32</span> 题</div>
           <ol class="step-list" id="stepList"></ol>
@@ -44,7 +44,7 @@
 
         <section class="question-panel" aria-live="polite">
           <div id="quizView">
-            <p class="question-index">第 <span id="questionNumber">1</span> / <span id="questionTotal">32</span> 题</p>
+            <p class="question-index"><span id="moduleName">能力倾向</span> · 第 <span id="questionNumber">1</span> / <span id="questionTotal">32</span> 题</p>
             <h1 id="questionText">面对复杂问题时，我会先拆解结构、找出关键变量，再决定怎么行动。</h1>
             <div class="options" id="options"></div>
             <div class="quiz-controls">
@@ -54,6 +54,10 @@
                 无对错答案，请选择最符合你的选项
               </p>
               <button class="secondary-btn" id="nextButton" type="button">下一题</button>
+            </div>
+            <div class="assessment-note">
+              <h2>作答建议</h2>
+              <p>这一阶段只采集你的真实偏好，不展示任何倾向分数。请按照过去半年最常出现的状态作答，不需要选择“看起来更好”的答案。</p>
             </div>
           </div>
 
@@ -87,6 +91,10 @@
                 <h2>下一步行动</h2>
                 <ul id="actionList"></ul>
               </div>
+              <div>
+                <h2>专业解读方式</h2>
+                <ul id="methodList"></ul>
+              </div>
             </div>
 
             <div class="result-actions">
@@ -96,9 +104,9 @@
           </div>
         </section>
 
-        <aside class="insight-panel" aria-label="当前倾向与职业方向">
+        <aside class="insight-panel" id="insightPanel" aria-label="测评结果倾向与职业方向" hidden>
           <section>
-            <h2>当前倾向</h2>
+            <h2>结果倾向</h2>
             <div class="dimension-list" id="dimensionList"></div>
           </section>
           <section class="career-preview">
@@ -107,7 +115,7 @@
               <button class="text-button" id="moreCareersButton" type="button">更多</button>
             </div>
             <div id="careerPreviewList"></div>
-            <button class="wide-button" id="showAllButton" type="button">查看全部职业方向</button>
+            <button class="wide-button" id="showAllButton" type="button">查看完整报告</button>
           </section>
         </aside>
       </main>

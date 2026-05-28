@@ -55,6 +55,20 @@ const scale = [
   { value: 5, label: "非常像我", desc: "这很符合我" },
 ];
 
+const questionModules = [
+  { from: 0, to: 7, name: "能力倾向" },
+  { from: 8, to: 15, name: "工作偏好" },
+  { from: 16, to: 23, name: "动机价值" },
+  { from: 24, to: 31, name: "压力与风险" },
+];
+
+const methodNotes = [
+  "优先看前三项优势的组合，而不是只看最高分；真实职业通常需要能力、动机和环境同时匹配。",
+  "高匹配职业代表更容易调用当前优势，可发展职业代表需要补充作品、经验或行业知识后再进入。",
+  "谨慎选择不是绝对不能做，而是提示这些岗位或环境可能长期消耗你，需要额外验证。",
+  "建议结合真实经历、作品证据、他人反馈和目标岗位 JD 一起判断，不把测试结果当成唯一答案。",
+];
+
 const profiles = {
   logic: {
     name: "结构判断者",
@@ -134,8 +148,10 @@ const answers = Array(questions.length).fill(null);
 let current = 0;
 
 const el = {
+  workspace: document.querySelector("#app-main"),
   questionNumber: document.querySelector("#questionNumber"),
   questionTotal: document.querySelector("#questionTotal"),
+  moduleName: document.querySelector("#moduleName"),
   sideCurrent: document.querySelector("#sideCurrent"),
   sideTotal: document.querySelector("#sideTotal"),
   questionText: document.querySelector("#questionText"),
@@ -150,12 +166,14 @@ const el = {
   resultView: document.querySelector("#resultView"),
   resultTitle: document.querySelector("#resultTitle"),
   resultSummary: document.querySelector("#resultSummary"),
+  insightPanel: document.querySelector("#insightPanel"),
   topTalentList: document.querySelector("#topTalentList"),
   sceneList: document.querySelector("#sceneList"),
   highCareerList: document.querySelector("#highCareerList"),
   growthCareerList: document.querySelector("#growthCareerList"),
   cautionList: document.querySelector("#cautionList"),
   actionList: document.querySelector("#actionList"),
+  methodList: document.querySelector("#methodList"),
   restartButton: document.querySelector("#restartButton"),
   reviewButton: document.querySelector("#reviewButton"),
   showAllButton: document.querySelector("#showAllButton"),
@@ -171,7 +189,6 @@ function init() {
   el.sideTotal.textContent = questions.length;
   renderSteps();
   renderQuestion();
-  renderInsights();
   bindEvents();
 }
 
@@ -215,17 +232,21 @@ function renderSteps() {
   el.stepList.innerHTML = "";
   questions.forEach((_, index) => {
     const item = document.createElement("li");
-    item.innerHTML = `<span class="step-dot">${index + 1}</span><span>问题 ${index + 1}</span>`;
+    const module = getQuestionModule(index);
+    item.innerHTML = `<span class="step-dot">${index + 1}</span><span>${module.shortName} ${index + 1}</span>`;
     el.stepList.appendChild(item);
   });
 }
 
 function renderQuestion() {
+  setMode("assessment");
   el.quizView.hidden = false;
   el.resultView.hidden = true;
+  el.insightPanel.hidden = true;
   const question = questions[current];
   el.questionNumber.textContent = current + 1;
   el.sideCurrent.textContent = current + 1;
+  el.moduleName.textContent = getQuestionModule(current).name;
   el.questionText.textContent = question.text;
   el.prevButton.disabled = current === 0;
   el.nextButton.textContent = current === questions.length - 1 ? "查看结果" : "下一题";
@@ -255,10 +276,17 @@ function renderQuestion() {
     button.addEventListener("click", () => {
       answers[current] = option;
       renderQuestion();
-      renderInsights();
     });
     el.options.appendChild(button);
   });
+}
+
+function getQuestionModule(index) {
+  const module = questionModules.find((item) => index >= item.from && index <= item.to) ?? questionModules[0];
+  return {
+    ...module,
+    shortName: module.name.slice(0, 2),
+  };
 }
 
 function multiplyScores(scores, value) {
@@ -356,8 +384,10 @@ function showResult() {
   }
 
   const { topThree, primary, secondary, tertiary, title, summary } = getResultData();
+  setMode("result");
   el.quizView.hidden = true;
   el.resultView.hidden = false;
+  el.insightPanel.hidden = false;
   el.resultTitle.textContent = title;
   el.resultSummary.textContent = `${summary} 这份测试用于自我探索和职业方向参考，不构成心理、医疗或职业诊断。`;
 
@@ -367,7 +397,13 @@ function showResult() {
   renderList(el.growthCareerList, unique([...primary.growthCareers, ...secondary.growthCareers, ...tertiary.growthCareers]).slice(0, 7));
   renderList(el.cautionList, unique([...primary.caution, ...secondary.caution, ...tertiary.caution]).slice(0, 5));
   renderList(el.actionList, unique([...primary.actions, ...secondary.actions, ...tertiary.actions]).slice(0, 6));
+  renderList(el.methodList, methodNotes);
   renderInsights();
+}
+
+function setMode(mode) {
+  el.workspace.classList.toggle("assessment-mode", mode === "assessment");
+  el.workspace.classList.toggle("result-mode", mode === "result");
 }
 
 function renderList(target, items) {
@@ -382,7 +418,6 @@ function restart() {
   answers.fill(null);
   current = 0;
   renderQuestion();
-  renderInsights();
   showToast("已重置，可以重新开始。");
 }
 
