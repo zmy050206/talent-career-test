@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>天赋与职业适配测试</title>
-    <link rel="stylesheet" href="styles.css?v=4" />
+    <link rel="stylesheet" href="styles.css?v=5" />
   </head>
   <body>
     <div class="app">
@@ -32,7 +32,7 @@
 
       <main id="app-main" class="workspace assessment-mode">
         <aside class="steps-panel" aria-label="测评进度">
-          <div class="question-count"><span id="sideCurrent">1</span> / <span id="sideTotal">32</span> 题</div>
+          <div class="question-count"><span id="sideCurrent">1</span> / <span id="sideTotal">48</span> 题</div>
           <ol class="step-list" id="stepList"></ol>
           <div class="result-step">
             <span class="flag-icon" aria-hidden="true">
@@ -44,7 +44,7 @@
 
         <section class="question-panel" aria-live="polite">
           <div id="quizView">
-            <p class="question-index"><span id="moduleName">能力倾向</span> · 第 <span id="questionNumber">1</span> / <span id="questionTotal">32</span> 题</p>
+            <p class="question-index"><span id="moduleName">自然行为</span> · 第 <span id="questionNumber">1</span> / <span id="questionTotal">48</span> 题</p>
             <h1 id="questionText">面对复杂问题时，我会先拆解结构、找出关键变量，再决定怎么行动。</h1>
             <div class="options" id="options"></div>
             <div class="quiz-controls">
@@ -66,34 +66,58 @@
             <h1 id="resultTitle">你的天赋画像</h1>
             <p id="resultSummary" class="result-summary"></p>
 
+            <section class="report-brief" aria-label="报告摘要">
+              <div>
+                <span class="brief-label">结果可信度</span>
+                <strong id="credibilityLabel">待生成</strong>
+                <p id="credibilityReason"></p>
+              </div>
+              <div>
+                <span class="brief-label">优先探索</span>
+                <div class="brief-tags" id="quickCareerList"></div>
+              </div>
+              <div>
+                <span class="brief-label">先避开</span>
+                <p id="avoidSummary"></p>
+              </div>
+            </section>
+
             <div class="result-grid deep-grid">
               <div>
-                <h2>核心天赋组合</h2>
+                <h2>能力优势</h2>
                 <ul id="topTalentList"></ul>
               </div>
               <div>
-                <h2>辅助倾向</h2>
-                <ul id="sceneList"></ul>
+                <h2>动机偏好</h2>
+                <ul id="motivationList"></ul>
+              </div>
+              <div>
+                <h2>环境适配</h2>
+                <ul id="environmentList"></ul>
               </div>
               <div>
                 <h2>高匹配职业</h2>
                 <ul id="highCareerList"></ul>
               </div>
               <div>
-                <h2>非主导倾向</h2>
+                <h2>可发展职业</h2>
                 <ul id="growthCareerList"></ul>
               </div>
               <div>
-                <h2>谨慎职业</h2>
+                <h2>风险消耗</h2>
+                <ul id="riskList"></ul>
+              </div>
+              <div>
+                <h2>不建议优先选择</h2>
                 <ul id="cautionList"></ul>
               </div>
               <div>
-                <h2>下一步行动</h2>
-                <ul id="actionList"></ul>
+                <h2>解读依据</h2>
+                <ul id="methodList"></ul>
               </div>
               <div>
-                <h2>适配与消耗环境</h2>
-                <ul id="methodList"></ul>
+                <h2>下一步验证计划</h2>
+                <ul id="actionList"></ul>
               </div>
             </div>
 
@@ -123,7 +147,7 @@
       <section class="preview-strip" aria-label="结果预览">
         <div class="preview-intro">
           <h2>深度结果预览</h2>
-          <p>完成 32 题后解锁完整报告</p>
+          <p>完成 48 题后解锁完整报告</p>
         </div>
         <div class="preview-item">
           <span class="preview-icon" aria-hidden="true">
@@ -155,6 +179,6 @@
       <div class="toast" id="toast" role="status" aria-live="polite"></div>
     </div>
 
-    <script src="app.js?v=4"></script>
+    <script src="app.js?v=5"></script>
   </body>
 </html>

@@ -596,6 +596,58 @@ h1 {
   line-height: 1.75;
 }
 
+.report-brief {
+  display: grid;
+  grid-template-columns: 0.9fr 1.3fr 1fr;
+  gap: 14px;
+  max-width: 920px;
+  margin: 0 0 18px;
+}
+
+.report-brief > div {
+  padding: 18px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--panel);
+}
+
+.brief-label {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 900;
+}
+
+.report-brief strong {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 22px;
+  line-height: 1.2;
+}
+
+.report-brief p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.brief-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.brief-tags span {
+  padding: 7px 9px;
+  border-radius: 8px;
+  background: #ffffff;
+  color: var(--mint-dark);
+  font-size: 13px;
+  font-weight: 900;
+}
+
 .result-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -633,6 +685,14 @@ h1 {
 .result-grid li strong {
   color: var(--ink);
   font-style: normal;
+}
+
+.result-grid li small {
+  display: block;
+  margin-top: 2px;
+  color: var(--mint-dark);
+  font-size: 12px;
+  font-weight: 900;
 }
 
 .result-grid li span {
@@ -704,6 +764,10 @@ h1 {
   .deep-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
+
+  .report-brief {
+    grid-template-columns: 1fr;
+  }
 }
 
 @media (max-width: 760px) {
@@ -732,6 +796,7 @@ h1 {
   .workspace.result-mode,
   .insight-panel,
   .preview-strip,
+  .report-brief,
   .options,
   .result-grid,
   .deep-grid {
