@@ -20,39 +20,39 @@ const dimensions = [
 ];
 
 const questionModules = [
-  { from: 0, to: 11, name: "自然行为", shortName: "行为" },
-  { from: 12, to: 19, name: "价值权衡", shortName: "权衡" },
-  { from: 20, to: 27, name: "压力消耗", shortName: "压力" },
-  { from: 28, to: 35, name: "能力证据", shortName: "证据" },
-  { from: 36, to: 43, name: "环境偏好", shortName: "环境" },
-  { from: 44, to: 55, name: "现实约束", shortName: "现实" },
+  { from: 0, to: 11, name: "做事反应", shortName: "反应" },
+  { from: 12, to: 19, name: "投入偏好", shortName: "投入" },
+  { from: 20, to: 27, name: "消耗方式", shortName: "消耗" },
+  { from: 28, to: 35, name: "能力线索", shortName: "线索" },
+  { from: 36, to: 43, name: "环境需要", shortName: "环境" },
+  { from: 44, to: 55, name: "现实选择", shortName: "选择" },
 ];
 
 const questions = [
   {
-    text: "接到一个陌生项目时，你最自然的第一步是？",
+    text: "遇到一件没做过的事（比如学新技能、准备活动、帮人解决问题）时，你最自然的第一步是？",
     options: [
-      option("拆目标和约束", "先弄清问题、边界和成功标准", { analysis: 3, systems: 1 }, ["structured"]),
-      option("找真实使用者聊", "先理解谁受影响、他们真正需要什么", { userInsight: 3, communication: 1 }, ["people"]),
-      option("快速做个小样", "先试跑一版，用结果校准方向", { execution: 3, research: 1 }, ["iteration"]),
-      option("找灵感和案例", "先看类似作品和新鲜做法", { creation: 3, research: 1 }, ["creative"]),
+      option("理清目标和限制", "先弄清要做到什么、有哪些条件", { analysis: 3, systems: 1 }, ["structured"]),
+      option("问问相关的人", "先理解谁会用到、谁需要被帮助", { userInsight: 3, communication: 1 }, ["people"]),
+      option("先做一小版", "先试一下，再根据反馈调整", { execution: 3, research: 1 }, ["iteration"]),
+      option("找参考和灵感", "先看类似做法和新鲜点子", { creation: 3, research: 1 }, ["creative"]),
     ],
   },
   {
-    text: "一场讨论陷入混乱时，你更可能扮演什么角色？",
+    text: "大家一起商量一件事但越聊越乱时，你更可能做什么？",
     options: [
       option("抓关键矛盾", "把大家真正争论的问题说清楚", { analysis: 3, communication: 1 }, ["structured"]),
       option("翻译不同立场", "让各方听懂彼此的顾虑", { communication: 3, userInsight: 1 }, ["people"]),
-      option("定下一步动作", "明确谁做什么、什么时候给结果", { execution: 3, systems: 1 }, ["delivery"]),
+      option("定下一步动作", "明确接下来谁做什么、什么时候完成", { execution: 3, systems: 1 }, ["delivery"]),
       option("提出新方向", "换一个角度让讨论重新打开", { creation: 3, autonomy: 1 }, ["creative"]),
     ],
   },
   {
-    text: "你最有成就感的工作瞬间通常来自？",
+    text: "你最有成就感的时刻通常来自？",
     options: [
       option("判断被验证", "之前的分析后来证明是对的", { analysis: 3, research: 1 }, ["evidence"]),
-      option("用户被帮助", "别人因为你的工作变得更顺畅", { userInsight: 3, communication: 1 }, ["people"]),
-      option("东西按时上线", "复杂任务终于稳定交付", { execution: 3, stability: 1 }, ["delivery"]),
+      option("别人被帮助", "对方因为你的帮助变得更顺畅", { userInsight: 3, communication: 1 }, ["people"]),
+      option("事情顺利完成", "复杂任务终于按计划完成", { execution: 3, stability: 1 }, ["delivery"]),
       option("作品被记住", "你的表达、设计或创意被认可", { creation: 3, autonomy: 1 }, ["creative"]),
     ],
   },
@@ -66,19 +66,19 @@ const questions = [
     ],
   },
   {
-    text: "团队里出现重复低效的问题，你更想做什么？",
+    text: "一件事总是重复出错或效率很低，你更想做什么？",
     options: [
       option("找根因", "先确认问题为什么反复发生", { analysis: 3, research: 1 }, ["evidence"]),
       option("建流程", "做模板、规范和检查机制", { systems: 3, stability: 1 }, ["process"]),
       option("推动执行", "先把卡住的环节推进掉", { execution: 3, communication: 1 }, ["delivery"]),
-      option("重新设计体验", "让这个流程对使用者更友好", { userInsight: 2, creation: 2 }, ["people"]),
+      option("重新设计体验", "让做这件事的人更省力、更舒服", { userInsight: 2, creation: 2 }, ["people"]),
     ],
   },
   {
     text: "如果要学习一个新领域，你最常用的方法是？",
     options: [
       option("系统阅读", "按主题整理资料和笔记", { research: 3, systems: 1 }, ["learning"]),
-      option("找人请教", "访谈有经验的人，理解真实场景", { userInsight: 2, communication: 2 }, ["people"]),
+      option("找人请教", "问有经验的人，理解真实情况", { userInsight: 2, communication: 2 }, ["people"]),
       option("做小实验", "用一个真实任务边做边学", { execution: 2, research: 2 }, ["iteration"]),
       option("拆优秀案例", "分析它为什么有效、哪里可借鉴", { analysis: 2, creation: 2 }, ["evidence"]),
     ],
@@ -87,26 +87,26 @@ const questions = [
     text: "当目标很模糊但时间紧，你更倾向于？",
     options: [
       option("先定义判断标准", "没有标准就容易忙错方向", { analysis: 3, systems: 1 }, ["structured"]),
-      option("先对齐关键人", "确认各方对结果的期待", { communication: 3, userInsight: 1 }, ["people"]),
+      option("先问清相关人", "确认大家对结果的期待", { communication: 3, userInsight: 1 }, ["people"]),
       option("先推进最小版本", "让事情进入可反馈状态", { execution: 3, research: 1 }, ["iteration"]),
       option("先找差异化切口", "避免做成普通方案", { creation: 3, autonomy: 1 }, ["creative"]),
     ],
   },
   {
-    text: "你更愿意负责哪类任务？",
+    text: "如果让你在一件共同完成的事里选一部分，你更愿意负责？",
     options: [
-      option("复杂决策支持", "帮团队判断选哪条路", { analysis: 3, commercial: 1 }, ["evidence"]),
-      option("用户需求理解", "发现真实问题和痛点", { userInsight: 3, research: 1 }, ["people"]),
-      option("项目落地推进", "把计划变成结果", { execution: 3, systems: 1 }, ["delivery"]),
-      option("内容/品牌表达", "让观点被看见、被记住", { creation: 3, communication: 1 }, ["creative"]),
+      option("判断选哪条路", "把信息理清，帮大家做选择", { analysis: 3, commercial: 1 }, ["evidence"]),
+      option("理解真实需要", "发现别人真正卡在哪里", { userInsight: 3, research: 1 }, ["people"]),
+      option("把计划做出来", "把想法拆成步骤并推进完成", { execution: 3, systems: 1 }, ["delivery"]),
+      option("把表达做好", "让观点被看见、被记住", { creation: 3, communication: 1 }, ["creative"]),
     ],
   },
   {
     text: "你最容易注意到一个方案里的什么问题？",
     options: [
       option("逻辑漏洞", "前后因果不成立或证据不足", { analysis: 3, stability: 1 }, ["evidence"]),
-      option("用户不买账", "看起来好，但使用者可能无感", { userInsight: 3, commercial: 1 }, ["people"]),
-      option("无法落地", "资源、时间和责任边界不清楚", { execution: 2, systems: 2 }, ["delivery"]),
+      option("别人不买账", "看起来好，但真正使用的人可能无感", { userInsight: 3, commercial: 1 }, ["people"]),
+      option("难以完成", "时间、资源和分工不清楚", { execution: 2, systems: 2 }, ["delivery"]),
       option("缺少亮点", "没有记忆点，不容易传播", { creation: 3, commercial: 1 }, ["creative"]),
     ],
   },
@@ -115,15 +115,15 @@ const questions = [
     options: [
       option("清晰判断", "把复杂问题说成几个关键判断", { analysis: 3, communication: 1 }, ["structured"]),
       option("关系协调", "让不同角色更愿意配合", { communication: 3, userInsight: 1 }, ["people"]),
-      option("稳定推进", "持续盯进度、补漏洞、交付结果", { execution: 2, stability: 2 }, ["delivery"]),
+      option("稳定推进", "持续盯进度、补漏洞、完成结果", { execution: 2, stability: 2 }, ["delivery"]),
       option("新鲜想法", "提供更有吸引力的表达和方案", { creation: 3, autonomy: 1 }, ["creative"]),
     ],
   },
   {
-    text: "看到一个产品或服务时，你更常先想什么？",
+    text: "看到一个新东西（商品、工具、活动或内容）时，你更常先想什么？",
     options: [
-      option("商业上是否成立", "成本、收入、增长空间怎么样", { commercial: 3, analysis: 1 }, ["commercial"]),
-      option("用户是否真的需要", "痛点是不是足够真实", { userInsight: 3, research: 1 }, ["people"]),
+      option("值不值得做", "成本、价值、机会空间怎么样", { commercial: 3, analysis: 1 }, ["commercial"]),
+      option("别人是否真的需要", "这个需求是不是足够真实", { userInsight: 3, research: 1 }, ["people"]),
       option("流程是否顺畅", "哪里会卡住、哪里能优化", { systems: 2, execution: 2 }, ["process"]),
       option("表达是否吸引人", "视觉、文案、故事有没有记忆点", { creation: 3, communication: 1 }, ["creative"]),
     ],
@@ -139,16 +139,16 @@ const questions = [
   },
 
   {
-    text: "如果只能选一个，你更看重工作的哪种回报？",
+    text: "如果只能选一个，你更看重一件长期投入的事带来哪种回报？",
     options: [
       option("成长速度", "能持续学到新东西", { research: 2, autonomy: 2 }, ["learning"]),
       option("稳定确定", "节奏清楚、风险可控", { stability: 3, systems: 1 }, ["stable"]),
-      option("影响他人", "能真实帮助用户或团队", { userInsight: 2, communication: 2 }, ["people"]),
-      option("商业结果", "能看到价值、收入或增长", { commercial: 3, execution: 1 }, ["commercial"]),
+      option("影响他人", "能真实帮助别人或改善体验", { userInsight: 2, communication: 2 }, ["people"]),
+      option("现实回报", "能看到价值、收入或成长机会", { commercial: 3, execution: 1 }, ["commercial"]),
     ],
   },
   {
-    text: "你更能接受哪种工作状态？",
+    text: "你更能接受哪种长期做事状态？",
     options: [
       option("高自由但不确定", "自己定义路径和标准", { autonomy: 3, research: 1 }, ["autonomy"]),
       option("低自由但稳定", "明确流程和预期，长期深耕", { stability: 3, systems: 1 }, ["stable"]),
@@ -157,7 +157,7 @@ const questions = [
     ],
   },
   {
-    text: "一个岗位吸引你，最可能因为它能让你？",
+    text: "一个方向吸引你，最可能因为它能让你？",
     options: [
       option("解决难题", "处理复杂、模糊、有挑战的问题", { analysis: 2, research: 2 }, ["evidence"]),
       option("创造作品", "产出可展示、可传播的东西", { creation: 3, autonomy: 1 }, ["creative"]),
@@ -175,30 +175,30 @@ const questions = [
     ],
   },
   {
-    text: "当你选择发展方向时，更想优先验证什么？",
+    text: "当你选择一个发展方向时，更想优先验证什么？",
     options: [
       option("我是否真的擅长", "用作品、案例和反馈证明能力", { stability: 2, analysis: 2 }, ["evidence"]),
       option("我是否长期有兴趣", "看自己会不会持续主动投入", { autonomy: 2, research: 2 }, ["learning"]),
-      option("市场是否需要", "判断这个方向有没有需求和机会", { commercial: 3, analysis: 1 }, ["commercial"]),
-      option("环境是否适合", "看团队、节奏和沟通方式是否匹配", { systems: 2, userInsight: 2 }, ["process"]),
+      option("现实是否需要", "判断这个方向有没有需求和机会", { commercial: 3, analysis: 1 }, ["commercial"]),
+      option("环境是否适合", "看节奏、沟通方式和规则是否匹配", { systems: 2, userInsight: 2 }, ["process"]),
     ],
   },
   {
-    text: "你更偏好的团队文化是？",
+    text: "你更偏好哪种一起做事的氛围？",
     options: [
       option("理性透明", "用事实、数据和逻辑讨论问题", { analysis: 2, stability: 2 }, ["evidence"]),
       option("开放创造", "鼓励新想法和试错", { creation: 2, autonomy: 2 }, ["creative"]),
       option("彼此信任", "沟通充分，尊重人的感受", { communication: 2, userInsight: 2 }, ["people"]),
-      option("目标明确", "节奏清晰，交付标准明确", { execution: 2, systems: 2 }, ["delivery"]),
+      option("目标明确", "节奏清晰，完成标准明确", { execution: 2, systems: 2 }, ["delivery"]),
     ],
   },
   {
-    text: "如果两份工作薪资相近，你更愿意选？",
+    text: "如果几条发展路线条件差不多，你更愿意选？",
     options: [
-      option("研究分析岗", "长期处理信息和判断", { analysis: 2, research: 2 }, ["evidence"]),
-      option("内容创意岗", "持续做表达和作品", { creation: 3, communication: 1 }, ["creative"]),
-      option("客户/用户岗", "和真实需求、高频反馈打交道", { userInsight: 2, communication: 2 }, ["people"]),
-      option("项目运营岗", "负责推进、协调和结果", { execution: 2, systems: 2 }, ["delivery"]),
+      option("研究分析路线", "长期处理信息和判断", { analysis: 2, research: 2 }, ["evidence"]),
+      option("内容创意路线", "持续做表达和作品", { creation: 3, communication: 1 }, ["creative"]),
+      option("沟通服务路线", "和真实需求、高频反馈打交道", { userInsight: 2, communication: 2 }, ["people"]),
+      option("组织推进路线", "负责计划、协调和结果", { execution: 2, systems: 2 }, ["delivery"]),
     ],
   },
   {
@@ -207,21 +207,21 @@ const questions = [
       option("案例拆解", "训练判断和分析框架", { analysis: 3, commercial: 1 }, ["evidence"]),
       option("作品创作", "训练表达、设计或内容产出", { creation: 3, stability: 1 }, ["creative"]),
       option("访谈沟通", "训练提问、倾听和影响", { userInsight: 2, communication: 2 }, ["people"]),
-      option("项目管理", "训练计划、推进和复盘", { execution: 2, systems: 2 }, ["delivery"]),
+      option("计划推进", "训练计划、协调和复盘", { execution: 2, systems: 2 }, ["delivery"]),
     ],
   },
 
   {
-    text: "以下哪种工作最容易消耗你？",
+    text: "以下哪种状态最容易消耗你？",
     options: [
-      option("每天重复填表", "流程固定，变化很少", { stability: -2, autonomy: 2, research: 1 }, ["routineDrain"]),
-      option("天天陌生销售", "高频陌生沟通和强成交压力", { communication: -2, commercial: 1, autonomy: 1 }, ["socialDrain"]),
+      option("每天机械重复", "流程固定，变化很少", { stability: -2, autonomy: 2, research: 1 }, ["routineDrain"]),
+      option("天天主动推销", "高频陌生沟通和强说服压力", { communication: -2, commercial: 1, autonomy: 1 }, ["socialDrain"]),
       option("长期没人反馈", "不知道做得好不好，也看不到影响", { userInsight: -1, execution: -1, research: 1 }, ["feedbackDrain"]),
-      option("一直开放发散", "没有边界、计划和交付标准", { systems: -2, execution: -1, creation: 1 }, ["ambiguityDrain"]),
+      option("一直开放发散", "没有边界、计划和完成标准", { systems: -2, execution: -1, creation: 1 }, ["ambiguityDrain"]),
     ],
   },
   {
-    text: "你最怕哪种岗位要求？",
+    text: "你最怕哪种做事要求？",
     options: [
       option("只要照做", "不需要判断，也不能提出改进", { analysis: -2, autonomy: 2 }, ["routineDrain"]),
       option("随时救火", "目标反复变，永远赶进度", { stability: -2, execution: 1 }, ["chaosDrain"]),
@@ -239,12 +239,12 @@ const questions = [
     ],
   },
   {
-    text: "如果连续一个月工作没有变化，你更可能？",
+    text: "如果连续一个月每天做的事都差不多，你更可能？",
     options: [
       option("继续优化细节", "把质量做得更稳定", { stability: 3, systems: 1 }, ["stable"]),
       option("寻找改进空间", "看哪里能更高效", { systems: 2, analysis: 2 }, ["process"]),
       option("明显失去动力", "希望有新问题和新挑战", { autonomy: 2, research: 2 }, ["routineDrain"]),
-      option("尝试新的表达", "给重复工作加入新形式", { creation: 2, execution: 1 }, ["creative"]),
+      option("尝试新的表达", "给重复事情加入新形式", { creation: 2, execution: 1 }, ["creative"]),
     ],
   },
   {
@@ -260,13 +260,13 @@ const questions = [
     text: "面对批评或否定，你更希望对方给你什么？",
     options: [
       option("具体证据", "哪里不成立、为什么不成立", { analysis: 2, stability: 1 }, ["evidence"]),
-      option("用户反馈", "谁不满意、真实反应是什么", { userInsight: 2, research: 1 }, ["people"]),
+      option("真实反馈", "谁不满意、真实反应是什么", { userInsight: 2, research: 1 }, ["people"]),
       option("下一步标准", "改到什么程度算通过", { execution: 2, systems: 1 }, ["delivery"]),
       option("表达建议", "怎样更有吸引力和说服力", { creation: 2, communication: 1 }, ["creative"]),
     ],
   },
   {
-    text: "如果项目长期没有明确负责人，你会？",
+    text: "如果一件共同完成的事长期没人牵头，你会？",
     options: [
       option("推动明确责任", "不然很难有结果", { execution: 2, systems: 2 }, ["delivery"]),
       option("先把问题写清", "让大家看到关键矛盾", { analysis: 2, communication: 1 }, ["structured"]),
@@ -289,7 +289,7 @@ const questions = [
     options: [
       option("把复杂事讲清楚", "别人因此更容易判断", { analysis: 3, communication: 1 }, ["evidence"]),
       option("把人的需求摸清楚", "别人觉得你很懂他们", { userInsight: 3, communication: 1 }, ["people"]),
-      option("把事情推进完成", "即使琐碎也能交付", { execution: 3, stability: 1 }, ["delivery"]),
+      option("把事情推进完成", "即使琐碎也能完成到位", { execution: 3, stability: 1 }, ["delivery"]),
       option("把普通事做出亮点", "形式、表达或体验更有吸引力", { creation: 3, autonomy: 1 }, ["creative"]),
     ],
   },
@@ -303,11 +303,11 @@ const questions = [
     ],
   },
   {
-    text: "如果必须补一项能力，你最愿意补？",
+    text: "如果现在必须补一项能力，你最愿意补？",
     options: [
-      option("数据和商业分析", "让判断更有证据", { analysis: 2, commercial: 2 }, ["evidence"]),
-      option("用户研究和访谈", "更懂真实需求", { userInsight: 3, research: 1 }, ["people"]),
-      option("项目管理和执行", "让想法稳定落地", { execution: 2, systems: 2 }, ["delivery"]),
+      option("数据和价值分析", "让判断更有证据", { analysis: 2, commercial: 2 }, ["evidence"]),
+      option("需求理解和访谈", "更懂真实需求", { userInsight: 3, research: 1 }, ["people"]),
+      option("计划管理和执行", "让想法稳定落地", { execution: 2, systems: 2 }, ["delivery"]),
       option("表达和设计能力", "让成果更有吸引力", { creation: 2, communication: 2 }, ["creative"]),
     ],
   },
@@ -317,7 +317,7 @@ const questions = [
       option("我真正擅长什么", "找到核心能力证据", { analysis: 2, stability: 1 }, ["evidence"]),
       option("我适合服务谁", "找到更匹配的人群和需求", { userInsight: 2, communication: 1 }, ["people"]),
       option("我怎么落地选择", "找到下一步行动计划", { execution: 2, systems: 1 }, ["delivery"]),
-      option("我该探索什么方向", "找到更有可能性的职业路径", { research: 2, autonomy: 1 }, ["learning"]),
+      option("我该探索什么方向", "找到更有可能性的未来路径", { research: 2, autonomy: 1 }, ["learning"]),
     ],
   },
   {
@@ -370,7 +370,7 @@ const questions = [
     options: [
       option("人和教育", "心理、学习、沟通、成长", { care: 2, userInsight: 2 }, ["teaching"]),
       option("技术和工程", "代码、设备、系统、工具", { technical: 3, research: 1 }, ["technical"]),
-      option("商业和市场", "行业、增长、交易、经营", { commercial: 3, analysis: 1 }, ["commercial"]),
+      option("经营和机会", "行业、增长、交易、经营", { commercial: 3, analysis: 1 }, ["commercial"]),
       option("规则和制度", "法律、财务、审计、政策", { compliance: 3, stability: 1 }, ["compliance"]),
     ],
   },
@@ -380,7 +380,7 @@ const questions = [
       option("一个清晰结论", "别人能据此做判断", { analysis: 3, communication: 1 }, ["evidence"]),
       option("一个可用工具", "真的能被使用或提升效率", { technical: 2, practical: 2 }, ["technical"]),
       option("一个被照顾好的人", "对方因为你获得支持或改善", { care: 3, userInsight: 1 }, ["care"]),
-      option("一个零差错流程", "风险被控制，交付稳定", { compliance: 2, systems: 2 }, ["compliance"]),
+      option("一个零差错流程", "风险被控制，结果稳定", { compliance: 2, systems: 2 }, ["compliance"]),
     ],
   },
   {
@@ -393,16 +393,16 @@ const questions = [
     ],
   },
   {
-    text: "你更希望工作环境提供什么？",
+    text: "你更希望长期待着的环境提供什么？",
     options: [
       option("专业深度", "能持续提升一门硬技能", { technical: 2, research: 2 }, ["technical"]),
       option("现场反馈", "能马上看到操作和服务效果", { practical: 2, care: 1, execution: 1 }, ["onsite"]),
-      option("稳定制度", "职责、流程、规则都清楚", { compliance: 2, stability: 2 }, ["stable"]),
+      option("稳定规则", "职责、流程、边界都清楚", { compliance: 2, stability: 2 }, ["stable"]),
       option("自主空间", "能自己定义路径和方法", { autonomy: 3, creation: 1 }, ["autonomy"]),
     ],
   },
   {
-    text: "如果工作需要经常面对陌生人，你的感觉更接近？",
+    text: "如果一件事需要经常面对陌生人，你的感觉更接近？",
     options: [
       option("愿意主动沟通", "交流本身能带来信息和机会", { communication: 3, commercial: 1 }, ["people"]),
       option("可以，但要有目的", "有明确问题或任务时能沟通", { userInsight: 2, analysis: 1, compliance: 1 }, ["structured"]),
@@ -411,21 +411,21 @@ const questions = [
     ],
   },
   {
-    text: "你对“稳定编制/大组织/规则清晰”的态度更像？",
+    text: "你对“稳定组织/规则清晰/路径明确”的态度更像？",
     options: [
       option("很有吸引力", "稳定、制度和边界让我安心", { compliance: 2, stability: 3 }, ["stable"]),
       option("可以接受", "只要还有成长和专业提升", { research: 2, compliance: 1 }, ["learning"]),
       option("不太适合", "我更需要自主和变化", { autonomy: 3, creation: 1 }, ["autonomy"]),
-      option("看岗位内容", "如果能解决真实问题就可以", { analysis: 1, userInsight: 1, execution: 1 }, ["structured"]),
+      option("看具体内容", "如果能解决真实问题就可以", { analysis: 1, userInsight: 1, execution: 1 }, ["structured"]),
     ],
   },
   {
-    text: "你是否愿意为职业方向额外学习硬技能或考证？",
+    text: "你是否愿意为未来方向额外学习硬技能或考证？",
     options: [
       option("愿意学技术", "代码、工具、系统、自动化都可以", { technical: 3, research: 1 }, ["technical"]),
       option("愿意考证", "财务、法务、教师、心理、医疗等证书", { compliance: 2, stability: 2 }, ["certification"]),
-      option("愿意做作品", "作品集、案例、内容、设计项目", { creation: 2, autonomy: 2 }, ["creative"]),
-      option("愿意积累经验", "通过实习、服务和现场项目慢慢进入", { practical: 2, care: 1, execution: 1 }, ["handsOn"]),
+      option("愿意做作品", "作品集、案例、内容、设计练习", { creation: 2, autonomy: 2 }, ["creative"]),
+      option("愿意积累经验", "通过练习、服务和现场体验慢慢进入", { practical: 2, care: 1, execution: 1 }, ["handsOn"]),
     ],
   },
   {
@@ -438,16 +438,16 @@ const questions = [
     ],
   },
   {
-    text: "如果未来要转行，你更愿意从哪里切入？",
+    text: "如果未来要换一个方向，你更愿意从哪里切入？",
     options: [
       option("从作品切入", "先做可展示案例证明能力", { creation: 2, autonomy: 1, execution: 1 }, ["creative"]),
       option("从技能切入", "先补硬技能和工具能力", { technical: 3, research: 1 }, ["technical"]),
       option("从证书切入", "先获得门槛和专业背书", { compliance: 2, stability: 2 }, ["certification"]),
-      option("从服务切入", "先从真实用户、客户或现场经验开始", { care: 1, practical: 2, communication: 1 }, ["handsOn"]),
+      option("从服务切入", "先从真实的人、需求或现场体验开始", { care: 1, practical: 2, communication: 1 }, ["handsOn"]),
     ],
   },
   {
-    text: "你更不想长期忍受哪种职业代价？",
+    text: "你更不想长期忍受哪种代价？",
     options: [
       option("长期没有成长", "每天重复，不需要学习", { research: -2, autonomy: 1 }, ["routineDrain"]),
       option("长期高频社交", "每天大量陌生沟通和关系维护", { communication: -2, care: 1 }, ["socialDrain"]),
@@ -456,7 +456,7 @@ const questions = [
     ],
   },
   {
-    text: "你最希望通过工作获得哪种长期身份？",
+    text: "你最希望未来形成哪种长期身份？",
     options: [
       option("专业判断者", "别人相信你的分析和建议", { analysis: 2, commercial: 1, research: 1 }, ["evidence"]),
       option("创造者", "别人通过作品认识你", { creation: 3, autonomy: 1 }, ["creative"]),
@@ -474,7 +474,7 @@ const questions = [
     ],
   },
   {
-    text: "你更能接受哪种工作强度？",
+    text: "你更能接受哪种投入强度？",
     options: [
       option("长时间脑力专注", "持续分析、写作、建模或调试", { analysis: 2, technical: 2 }, ["deepWork"]),
       option("长时间站立走动", "现场服务、巡查、活动、护理或运动", { physicalEnergy: 3, practical: 1 }, ["physical"]),
@@ -492,16 +492,16 @@ const questions = [
     ],
   },
   {
-    text: "如果你负责一个小团队，你最想先做什么？",
+    text: "如果你负责带几个人完成一件事，你最想先做什么？",
     options: [
       option("明确目标和分工", "让每个人知道该做什么", { leadership: 3, systems: 1 }, ["management"]),
       option("建立规则和节奏", "让协作更稳定、更可复盘", { systems: 2, compliance: 1, leadership: 1 }, ["process"]),
-      option("照顾团队状态", "让成员有安全感和动力", { care: 2, communication: 2 }, ["people"]),
-      option("盯住业务结果", "让团队产出可衡量价值", { commercial: 2, execution: 1, leadership: 1 }, ["commercial"]),
+      option("照顾大家状态", "让参与者有安全感和动力", { care: 2, communication: 2 }, ["people"]),
+      option("盯住实际结果", "让这件事产出可衡量价值", { commercial: 2, execution: 1, leadership: 1 }, ["commercial"]),
     ],
   },
   {
-    text: "你更愿意进入哪种职业训练路径？",
+    text: "你更愿意进入哪种能力训练路径？",
     options: [
       option("证书和资格路径", "教师、财务、法务、医疗、工程等", { compliance: 2, stability: 1, teaching: 1 }, ["certification"]),
       option("作品和审美路径", "设计、摄影、内容、造型、空间等", { spatialAesthetic: 2, creation: 2 }, ["aesthetic"]),
@@ -512,7 +512,7 @@ const questions = [
   {
     text: "哪种成就更容易让你愿意坚持几年？",
     options: [
-      option("带出一个团队", "成员成长，目标也能完成", { leadership: 3, communication: 1 }, ["management"]),
+      option("带好一群人", "大家成长，目标也能完成", { leadership: 3, communication: 1 }, ["management"]),
       option("做成一门手艺", "技术或作品越来越成熟", { practical: 2, stability: 1, spatialAesthetic: 1 }, ["handsOn"]),
       option("帮助一类人", "持续改善他们的学习、健康或生活", { care: 3, teaching: 1 }, ["care"]),
       option("建立一套系统", "流程、工具或组织长期运转", { systems: 2, technical: 1, compliance: 1 }, ["process"]),
@@ -523,12 +523,12 @@ const questions = [
     options: [
       option("体力消耗大", "长期站立、搬动、奔波、夜班或户外", { physicalEnergy: -2, stability: 1 }, ["physicalDrain"]),
       option("审美反馈反复", "作品被反复修改、主观评价很多", { spatialAesthetic: -1, creation: -1, stability: 1 }, ["aestheticDrain"]),
-      option("要带人担责", "团队结果和人际问题都要你扛", { leadership: -2, autonomy: 1 }, ["managementDrain"]),
+      option("要带人担责", "结果和人际问题都要你扛", { leadership: -2, autonomy: 1 }, ["managementDrain"]),
       option("持续教学陪伴", "重复讲解、等待别人慢慢改变", { teaching: -1, care: -1, execution: 1 }, ["careDrain"]),
     ],
   },
   {
-    text: "如果让你选择一个低成本验证项目，你最愿意做？",
+    text: "如果让你选择一个低成本验证练习，你最愿意做？",
     options: [
       option("给朋友讲一节课", "设计 15 分钟讲解并收反馈", { teaching: 3, communication: 1 }, ["teaching"]),
       option("改造一个角落", "做空间布置、收纳、陈列或拍摄方案", { spatialAesthetic: 3, practical: 1 }, ["aesthetic"]),
