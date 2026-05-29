@@ -13,6 +13,10 @@ const dimensions = [
   { id: "practical", name: "动手实操", description: "通过制作、操作、维护、现场处理把事情做出来。" },
   { id: "care", name: "照护服务", description: "提供支持、陪伴、教学、照护和细致服务。" },
   { id: "compliance", name: "规则合规", description: "理解制度、风险、标准、流程和边界。" },
+  { id: "teaching", name: "教学引导", description: "把知识、方法或经验转化为别人能理解和练习的路径。" },
+  { id: "spatialAesthetic", name: "空间审美", description: "理解形状、空间、色彩、材料、风格和视觉秩序。" },
+  { id: "physicalEnergy", name: "身体协调", description: "适应体力、动作、节奏、现场移动和身体表达。" },
+  { id: "leadership", name: "组织管理", description: "带领团队、配置资源、承担责任并推动更大范围结果。" },
 ];
 
 const questionModules = [
@@ -21,7 +25,7 @@ const questionModules = [
   { from: 20, to: 27, name: "压力消耗", shortName: "压力" },
   { from: 28, to: 35, name: "能力证据", shortName: "证据" },
   { from: 36, to: 43, name: "环境偏好", shortName: "环境" },
-  { from: 44, to: 47, name: "现实约束", shortName: "现实" },
+  { from: 44, to: 55, name: "现实约束", shortName: "现实" },
 ];
 
 const questions = [
@@ -460,6 +464,78 @@ const questions = [
       option("支持者/教育者", "帮助他人变好、变清楚、变稳定", { care: 3, communication: 1 }, ["teaching"]),
     ],
   },
+  {
+    text: "如果要从零做一个真实作品，你更想做哪类？",
+    options: [
+      option("一个可用工具", "能自动化、计算、查询或提升效率", { technical: 3, analysis: 1 }, ["technical"]),
+      option("一个空间/视觉方案", "房间布置、海报、摄影、陈列或造型", { spatialAesthetic: 3, creation: 1 }, ["aesthetic"]),
+      option("一个教学方案", "让别人能按步骤学会一件事", { teaching: 3, care: 1 }, ["teaching"]),
+      option("一个现场活动", "把人、物料、流程和突发都安排好", { leadership: 2, practical: 2 }, ["onsite"]),
+    ],
+  },
+  {
+    text: "你更能接受哪种工作强度？",
+    options: [
+      option("长时间脑力专注", "持续分析、写作、建模或调试", { analysis: 2, technical: 2 }, ["deepWork"]),
+      option("长时间站立走动", "现场服务、巡查、活动、护理或运动", { physicalEnergy: 3, practical: 1 }, ["physical"]),
+      option("长时间面对人", "讲解、沟通、陪伴、服务和协调", { communication: 2, care: 2 }, ["people"]),
+      option("长时间核对细节", "数据、条款、账目、风险和规范", { compliance: 2, stability: 2 }, ["compliance"]),
+    ],
+  },
+  {
+    text: "你对空间、形象、材料和风格的敏感度更像？",
+    options: [
+      option("很敏感", "容易注意布局、色彩、质感和搭配", { spatialAesthetic: 3, creation: 1 }, ["aesthetic"]),
+      option("偏实用", "更关心好不好用、结不结实", { practical: 2, systems: 1, technical: 1 }, ["handsOn"]),
+      option("偏规则", "更关心是否合规、安全、标准", { compliance: 3, stability: 1 }, ["compliance"]),
+      option("偏人感受", "更关心人在空间里是否舒服", { userInsight: 2, care: 1, spatialAesthetic: 1 }, ["people"]),
+    ],
+  },
+  {
+    text: "如果你负责一个小团队，你最想先做什么？",
+    options: [
+      option("明确目标和分工", "让每个人知道该做什么", { leadership: 3, systems: 1 }, ["management"]),
+      option("建立规则和节奏", "让协作更稳定、更可复盘", { systems: 2, compliance: 1, leadership: 1 }, ["process"]),
+      option("照顾团队状态", "让成员有安全感和动力", { care: 2, communication: 2 }, ["people"]),
+      option("盯住业务结果", "让团队产出可衡量价值", { commercial: 2, execution: 1, leadership: 1 }, ["commercial"]),
+    ],
+  },
+  {
+    text: "你更愿意进入哪种职业训练路径？",
+    options: [
+      option("证书和资格路径", "教师、财务、法务、医疗、工程等", { compliance: 2, stability: 1, teaching: 1 }, ["certification"]),
+      option("作品和审美路径", "设计、摄影、内容、造型、空间等", { spatialAesthetic: 2, creation: 2 }, ["aesthetic"]),
+      option("技术和工具路径", "代码、设备、自动化、数据、工程等", { technical: 3, research: 1 }, ["technical"]),
+      option("现场和服务路径", "活动、门店、护理、餐旅、维修等", { practical: 2, physicalEnergy: 1, care: 1 }, ["onsite"]),
+    ],
+  },
+  {
+    text: "哪种成就更容易让你愿意坚持几年？",
+    options: [
+      option("带出一个团队", "成员成长，目标也能完成", { leadership: 3, communication: 1 }, ["management"]),
+      option("做成一门手艺", "技术或作品越来越成熟", { practical: 2, stability: 1, spatialAesthetic: 1 }, ["handsOn"]),
+      option("帮助一类人", "持续改善他们的学习、健康或生活", { care: 3, teaching: 1 }, ["care"]),
+      option("建立一套系统", "流程、工具或组织长期运转", { systems: 2, technical: 1, compliance: 1 }, ["process"]),
+    ],
+  },
+  {
+    text: "你更不想长期处在哪种代价里？",
+    options: [
+      option("体力消耗大", "长期站立、搬动、奔波、夜班或户外", { physicalEnergy: -2, stability: 1 }, ["physicalDrain"]),
+      option("审美反馈反复", "作品被反复修改、主观评价很多", { spatialAesthetic: -1, creation: -1, stability: 1 }, ["aestheticDrain"]),
+      option("要带人担责", "团队结果和人际问题都要你扛", { leadership: -2, autonomy: 1 }, ["managementDrain"]),
+      option("持续教学陪伴", "重复讲解、等待别人慢慢改变", { teaching: -1, care: -1, execution: 1 }, ["careDrain"]),
+    ],
+  },
+  {
+    text: "如果让你选择一个低成本验证项目，你最愿意做？",
+    options: [
+      option("给朋友讲一节课", "设计 15 分钟讲解并收反馈", { teaching: 3, communication: 1 }, ["teaching"]),
+      option("改造一个角落", "做空间布置、收纳、陈列或拍摄方案", { spatialAesthetic: 3, practical: 1 }, ["aesthetic"]),
+      option("组织一次小活动", "负责流程、分工、物料和现场", { leadership: 2, execution: 1, practical: 1 }, ["onsite"]),
+      option("做一个效率工具", "用表格、脚本或 AI 简化重复任务", { technical: 2, systems: 2 }, ["technical"]),
+    ],
+  },
 ];
 
 const careers = [
@@ -487,6 +563,14 @@ const careers = [
   career("法务 / 合规 / 行政制度", { compliance: 4, analysis: 2, stability: 2, communication: 1 }, ["detailDrain", "routineDrain"], "适合理解规则边界、识别风险并形成规范表达。", "如果你需要高创造空间或不喜欢条款细节，会消耗。", "从合同条款拆解、制度流程和案例检索切入。"),
   career("公务/事业单位综合岗", { compliance: 3, stability: 3, communication: 2, systems: 2 }, ["routineDrain", "autonomyDrain"], "适合稳定组织、规范流程、公共服务和综合协调。", "如果你强烈需要高自主和快速变化，需要谨慎判断。", "从公文写作、政策理解和综合事务练习切入。"),
   career("活动执行 / 现场运营", { practical: 3, execution: 3, communication: 2, systems: 2 }, ["onsiteDrain", "chaosDrain"], "适合现场协调、资源调度和突发问题处理。", "如果你不喜欢奔波、临场变化和细节压力，需要谨慎。", "从小活动流程表、物料清单和应急预案切入。"),
+  career("空间设计 / 室内陈列", { spatialAesthetic: 4, creation: 2, practical: 2, userInsight: 1 }, ["aestheticDrain", "routineDrain"], "适合处理空间、风格、材料和视觉秩序。", "如果你不喜欢主观审美反馈和反复修改，需要谨慎。", "从房间改造、软装陈列和视觉方案切入。"),
+  career("摄影 / 影视 / 编导", { spatialAesthetic: 3, creation: 3, communication: 1, physicalEnergy: 1 }, ["aestheticDrain", "onsiteDrain"], "适合通过画面、镜头和叙事表达观点。", "如果你不接受现场奔波和反复修改，可能消耗。", "从短片、摄影作品集和剪辑练习切入。"),
+  career("餐饮 / 酒店 / 旅游服务", { care: 3, practical: 3, communication: 2, physicalEnergy: 2 }, ["physicalDrain", "socialDrain"], "适合现场服务、体验改善和高频真实反馈。", "如果你不适应体力节奏和情绪劳动，需要谨慎。", "从门店观察、服务流程和客户反馈切入。"),
+  career("美容美发 / 手工艺 / 维修", { practical: 4, spatialAesthetic: 2, stability: 2, communication: 1 }, ["detailDrain", "physicalDrain"], "适合通过手艺、工具和持续练习形成专业价值。", "如果你不喜欢长期练习手感和服务反馈，需要谨慎。", "从 7 天作品练习、工具熟悉和客户沟通切入。"),
+  career("体育训练 / 运动健康", { physicalEnergy: 4, care: 2, teaching: 2, compliance: 1 }, ["physicalDrain", "careDrain"], "适合身体示范、训练陪伴和健康改善场景。", "如果你不接受体力消耗和安全责任，需要谨慎。", "从训练计划、动作示范和基础运动知识切入。"),
+  career("人力资源 / 组织发展", { communication: 3, care: 2, compliance: 2, leadership: 2 }, ["socialDrain", "routineDrain"], "适合理解人、岗位、制度和组织协作。", "如果你不喜欢处理人际复杂性和制度沟通，会消耗。", "从 JD、面试题、培训方案和员工体验调研切入。"),
+  career("团队管理 / 门店管理", { leadership: 4, execution: 3, commercial: 2, communication: 2 }, ["managementDrain", "chaosDrain"], "适合带人、管现场、看指标并对结果负责。", "如果你不想承担团队压力和经营责任，需要谨慎。", "从排班、目标拆解、服务检查和经营复盘切入。"),
+  career("农业 / 园艺 / 环保", { practical: 3, physicalEnergy: 2, care: 2, stability: 2 }, ["physicalDrain", "routineDrain"], "适合自然、户外、长期照料和现场观察类工作。", "如果你不适应户外和长期慢反馈，需要谨慎。", "从植物观察、环保志愿和农业技术资料切入。"),
 ];
 
 const environmentRules = {
@@ -668,6 +752,54 @@ const careerMeta = {
     gaps: ["现场应变", "供应商协调", "风险预案"],
     task: "为一个小活动写流程表、物料表、人员分工和应急预案。",
     keywords: ["活动执行", "现场运营", "会务", "展会执行"],
+  },
+  "空间设计 / 室内陈列": {
+    category: "空间与审美类",
+    gaps: ["空间软件", "材料工艺", "审美表达"],
+    task: "选一个房间或店铺角落，做一页改造方案：动线、色彩、收纳和预算。",
+    keywords: ["室内设计助理", "软装陈列", "空间设计", "视觉陈列"],
+  },
+  "摄影 / 影视 / 编导": {
+    category: "艺术传播类",
+    gaps: ["镜头语言", "剪辑工具", "现场协作"],
+    task: "围绕一个主题拍 10 张照片或 1 分钟短片，并写出创作意图。",
+    keywords: ["摄影助理", "短视频编导", "剪辑", "内容制作"],
+  },
+  "餐饮 / 酒店 / 旅游服务": {
+    category: "现场与服务类",
+    gaps: ["服务标准", "体力节奏", "现场应变"],
+    task: "观察一家门店的服务流程，记录 3 个体验问题和改进建议。",
+    keywords: ["酒店管培", "餐饮运营", "旅游顾问", "门店服务"],
+  },
+  "美容美发 / 手工艺 / 维修": {
+    category: "手工技能与实操类",
+    gaps: ["手感训练", "工具熟练度", "客户沟通"],
+    task: "选择一项手艺做 7 天练习，记录作品变化和反馈。",
+    keywords: ["美发助理", "美甲师", "维修学徒", "工艺制作"],
+  },
+  "体育训练 / 运动健康": {
+    category: "艺术体育与身体类",
+    gaps: ["训练理论", "身体示范", "安全边界"],
+    task: "设计一份 7 天基础训练计划，并记录执行反馈。",
+    keywords: ["健身教练", "运动康复助理", "体育培训", "赛事执行"],
+  },
+  "人力资源 / 组织发展": {
+    category: "公共服务与组织类",
+    gaps: ["招聘面试", "组织理解", "制度沟通"],
+    task: "为一个岗位写 JD、面试问题和候选人评价表。",
+    keywords: ["HR 助理", "招聘专员", "培训专员", "组织发展"],
+  },
+  "团队管理 / 门店管理": {
+    category: "经营管理与创业类",
+    gaps: ["带人能力", "经营指标", "现场管理"],
+    task: "为一家小店设计一周排班、销售目标和服务检查表。",
+    keywords: ["门店管理", "储备干部", "店长助理", "运营主管"],
+  },
+  "农业 / 园艺 / 环保": {
+    category: "自然与现场类",
+    gaps: ["自然知识", "长期照料", "户外适应"],
+    task: "做一个植物或环境观察记录，连续 7 天记录变化和维护动作。",
+    keywords: ["园艺师助理", "环保项目", "农业技术", "生态运营"],
   },
 };
 
